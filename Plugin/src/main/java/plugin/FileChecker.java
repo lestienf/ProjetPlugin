@@ -60,7 +60,7 @@ public class FileChecker {
 		while(true);
 	}
 
-	private void checkFilesAdded() {
+	protected void checkFilesAdded() {
 		Iterator<String> iter;
 		List<String> file = changeTabOfList(dir.list(filenameFilter));
 		
@@ -74,7 +74,7 @@ public class FileChecker {
 		}
 	}
 	
-	private void checkFilesRemoved(){
+	protected void checkFilesRemoved(){
 		List<String> tmp = new ArrayList<>();
 		Iterator<String> iter = knownFileNames.iterator();
 		List<String> file = changeTabOfList(dir.list(filenameFilter));
