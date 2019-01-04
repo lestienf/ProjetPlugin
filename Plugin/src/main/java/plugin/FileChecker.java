@@ -88,11 +88,33 @@ public class FileChecker {
 		knownFileNames.removeAll(tmp);
 	}
 	
-	private List<String> changeTabOfList(String[] tab){
+	protected List<String> changeTabOfList(String[] tab){
 		List<String> result = new ArrayList<>();
 		for(String s: tab){
 			result.add(s);
 		}
 		return result;
 	}
+
+	public List<FileListener> getObservers() {
+		return observers;
+	}
+
+	public void setObservers(List<FileListener> observers) {
+		this.observers = observers;
+	}
+
+	public List<String> getKnownFileNames() {
+		return knownFileNames;
+	}
+
+	public FilenameFilter getFilenameFilter() {
+		return filenameFilter;
+	}
+
+	public File getDir() {
+		return dir;
+	}
+	
+	
 }
