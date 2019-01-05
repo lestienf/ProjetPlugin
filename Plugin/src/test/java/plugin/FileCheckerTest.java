@@ -128,12 +128,13 @@ public class FileCheckerTest {
 	
 	@Test
 	public void checkFilesRemovedShouldRemoveAFileFromTheKnownFilesList() {
+
+		int expectedNumber = mock.getDir().list().length-1;
 		try {
 			File.createTempFile("tmp", ".class", mock.getDir()).deleteOnExit();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		int expectedNumber = mock.getDir().list().length-1;
 		String tmp[] = mock.getDir().list(new FilenameFilter() {
 			
 			@Override
@@ -141,9 +142,9 @@ public class FileCheckerTest {
 				return name.startsWith("tmp");
 			}
 		});
-		File f = new File(mock.getDir().getAbsolutePath()+"/"+tmp[0]);
+		File f = new File("target/classes/plugin/"+tmp[0]);
 		mock.checkFilesAdded();
-		boolean b = f.delete();
+		f.delete();
 		mock.checkFilesRemoved();
 		assertEquals(expectedNumber, mock.getKnownFileNames().size());
 	}
