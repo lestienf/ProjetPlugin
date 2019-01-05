@@ -12,5 +12,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/florianlestienne/Desktop/L3/test/ProjetPlugin/Plugin/target/extensions"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

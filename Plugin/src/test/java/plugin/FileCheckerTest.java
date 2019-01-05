@@ -57,7 +57,7 @@ public class FileCheckerTest {
 				return name.endsWith(".class");
 			}
 		};
-		mock = new MockFileChecker(new File("plugins"), filter);
+		mock = new MockFileChecker(new File("target/classes/plugin"), filter);
 	}
 
 	@Test

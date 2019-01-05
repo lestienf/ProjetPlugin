@@ -7,13 +7,13 @@ public class FileAddedEvent implements FileListener {
 
 	@Override
 	public void fileAdded(FileEvent myEventObject) {
-		System.out.println("nouveau .class :"+myEventObject.getFileName()+" détecté");
+		System.out.println("nouveau .class :"+myEventObject.getFileName()+" dï¿½tectï¿½");
 		
 	}
 
 	@Override
 	public void fileRemoved(FileEvent myEventObject) {
-		System.out.println(".class "+myEventObject.getFileName()+" supprimé détecté");
+		System.out.println(".class "+myEventObject.getFileName()+" supprimï¿½ dï¿½tectï¿½");
 	}
 	
 	
@@ -24,7 +24,7 @@ public class FileAddedEvent implements FileListener {
 				return name.endsWith(".class");
 			}
 		};
-		FileChecker checker = new FileChecker(new File("plugins"), filter);
+		FileChecker checker = new FileChecker(new File("target/classes/plugin"), filter);
 		checker.addListener(listener);
 		checker.start();
 	}
