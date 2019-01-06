@@ -1,4 +1,4 @@
-package plugin;
+package observable;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.Timer;
+
+import observers.FileEvent;
+import observers.FileListener;
 
 public class FileChecker {
 
@@ -26,30 +29,49 @@ public class FileChecker {
 		knownFileNames = this.changeTabOfList(tmp);
 	}
 
+	/**
+	 * Add a listener to the list
+	 * @param listener the listener added
+	 */
 	public void addListener(FileListener listener) {
 		if (!observers.contains(listener)) {
 			observers.add(listener);
 		}
 	}
 
+	/**
+	 * Remove a listener to the list
+	 * @param listener the listener removed
+	 */
 	public void removeListener(FileListener listener) {
 		if (observers.contains(listener)) {
 			observers.remove(listener);
 		}
 	}
 
+	/**
+	 * Send a fileAdded message at all listeners of the file Checker was added
+	 * @param fileName the fileName who correspond to the event
+	 */
 	private void fireFileAdded(String fileName) {
 		for (FileListener fl : observers) {
 			fl.fileAdded(new FileEvent(fileName));
 		}
 	}
-
+	
+	/**
+	 * Send a fileRemoved message at all listeners of the file Checker when a file was removed
+	 * @param fileName the fileName who correspond to the event
+	 */
 	private void fireFileRemoved(String fileName) {
 		for (FileListener fl : observers) {
 			fl.fileRemoved(new FileEvent(fileName));
 		}
 	}
 	
+	/**
+	 * Start the timer of the file checker
+	 */
 	public void start(){
 		timer = new Timer(2000, new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -60,6 +82,9 @@ public class FileChecker {
 		while(true);
 	}
 
+	/**
+	 * Check the directory to find a new file
+	 */
 	protected void checkFilesAdded() {
 		Iterator<String> iter;
 		List<String> file = changeTabOfList(dir.list(filenameFilter));
@@ -74,6 +99,9 @@ public class FileChecker {
 		}
 	}
 	
+	/**
+	 * Check the directory to find a removed file
+	 */
 	protected void checkFilesRemoved(){
 		List<String> tmp = new ArrayList<>();
 		Iterator<String> iter = knownFileNames.iterator();
@@ -88,7 +116,12 @@ public class FileChecker {
 		knownFileNames.removeAll(tmp);
 	}
 	
-	protected List<String> changeTabOfList(String[] tab){
+	/**
+	 * Transforms an array on a list
+	 * @param tab the array transformed
+	 * @return the list of the array
+	 */
+	public List<String> changeTabOfList(String[] tab){
 		List<String> result = new ArrayList<>();
 		for(String s: tab){
 			result.add(s);

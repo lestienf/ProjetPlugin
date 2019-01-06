@@ -1,4 +1,4 @@
-package plugin;
+package observers;
 
 import java.util.EventObject;
 

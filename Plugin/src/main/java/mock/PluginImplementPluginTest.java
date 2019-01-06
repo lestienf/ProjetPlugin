@@ -1,7 +1,7 @@
 package mock;
 
-import plugin.FileEvent;
-import plugin.FileListener;
+import observers.FileEvent;
+import observers.FileListener;
 
 public class PluginImplementPluginTest implements FileListener {
 	

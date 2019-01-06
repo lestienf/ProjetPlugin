@@ -1,7 +1,9 @@
-package plugin;
+package observers;
 
 import java.io.File;
 import java.io.FilenameFilter;
+
+import observable.FileChecker;
 
 public class FileAddedEvent implements FileListener {
 

@@ -1,4 +1,4 @@
-package plugin;
+package observable;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

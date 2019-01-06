@@ -36,7 +36,7 @@ public class PluginFilter implements FilenameFilter {
 		String realName = dir.getName().replaceAll("/", ".")+"."+name;
 		try {
 			c = Class.forName(realName).newInstance().getClass();
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | ClassFormatError | NoClassDefFoundError e) {
 			return false;
 		}
 		
@@ -50,7 +50,7 @@ public class PluginFilter implements FilenameFilter {
 		Class<?>[] parameters = new Class<?>[]{};
 		Class<?> plugin = plugin.Plugin.class;
 		try{
-			obj = Class.forName("plugins.CesarCode").newInstance().getClass();
+			obj = Class.forName("plugins.RemoveVowels").newInstance().getClass();
 		}catch(Exception e){
 			System.out.println("Erreur plugin");
 		}

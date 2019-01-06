@@ -1,18 +1,21 @@
-package plugin;
+package observers;
 
 import java.io.File;
+
+import observable.FileChecker;
+import plugin.PluginFilter;
 
 public class SinglePluginObserver implements FileListener {
 
 	@Override
 	public void fileAdded(FileEvent myEventObject) {
-		System.out.println("Un nouveau plugin "+myEventObject.fileName + " vient d'être ajouté !");
+		System.out.println("Un nouveau plugin "+myEventObject.getFileName()+ " vient d'être ajouté !");
 		
 	}
 
 	@Override
 	public void fileRemoved(FileEvent myEventObject) {
-		System.out.println("Le plugin "+ myEventObject.fileName + " vient d'être supprimé");
+		System.out.println("Le plugin "+ myEventObject.getFileName() + " vient d'être supprimé");
 	}
 	
 	

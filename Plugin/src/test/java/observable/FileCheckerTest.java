@@ -1,4 +1,4 @@
-package plugin;
+package observable;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.junit.*;
+
+import observable.FileChecker;
+import observers.FileEvent;
+import observers.FileListener;
 
 public class FileCheckerTest {
 

@@ -1,7 +1,10 @@
-package plugin;
+package observable;
 
 import java.io.File;
 import java.io.FilenameFilter;
+
+import observers.FileEvent;
+import observers.FileListener;
 
 public class MyFile implements FileListener{
 	

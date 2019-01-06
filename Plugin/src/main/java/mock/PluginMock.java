@@ -10,17 +10,17 @@ public class PluginMock implements Plugin{
 
 	@Override
 	public String transform(String s) {
-		return null;
+		return "MOCK";
 	}
 
 	@Override
 	public String getLabel() {
-		return null;
+		return "MockPlugin";
 	}
 
 	@Override
 	public String helpMessage() {
-		return null;
+		return "MockPlugin";
 	}
 	
 
